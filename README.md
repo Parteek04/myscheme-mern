@@ -163,13 +163,89 @@ Before you begin, ensure you have the following installed:
 
 ## 🚀 Installation
 
-### 1. Clone or Download the Repository
+### 1. Clone the Repository
 
 ```bash
-cd c:\Users\kumar\OneDrive\Desktop\mam
+git clone https://github.com/Parteek04/myscheme-mern.git
+cd myscheme-mern
 ```
 
 ### 2. Install Dependencies
+
+Install all dependencies (client + server) with one command:
+```bash
+npm run install-all
+```
+
+### 3. **IMPORTANT:** Setup Environment Variables
+
+Create the `.env` file in the server folder:
+
+```bash
+# Windows PowerShell
+cd server
+Copy-Item .env.example .env
+cd ..
+
+# Mac/Linux
+cd server
+cp .env.example .env
+cd ..
+```
+
+The `.env.example` already contains the working MongoDB connection string!
+
+### 4. Seed the Database
+
+```bash
+cd server
+npm run seed
+cd ..
+```
+
+You should see:
+```
+✅ Connected to MongoDB
+✅ 8 categories created
+✅ 13 schemes created
+```
+
+### 5. Start the Application
+
+```bash
+npm run dev
+```
+
+This starts both servers:
+- Frontend: http://localhost:5173
+- Backend: http://localhost:5000
+
+## 🔑 Login Credentials
+
+- **Admin:** admin@myscheme.com / admin123
+- **User:** user@test.com / user123
+
+---
+
+## ⚠️ Troubleshooting
+
+### "npm run seed" fails with environment error
+**Solution:** Make sure you created `server/.env` from `server/.env.example`
+
+### MongoDB connection fails
+**Solution:** Check that `MONGODB_URI` in `server/.env` is correct
+
+### Port already in use
+**Solution:** Kill the process or change port in `server/.env`
+
+```powershell
+# Windows - Kill process on port 5000
+Get-Process -Id (Get-NetTCPConnection -LocalPort 5000).OwningProcess | Stop-Process
+```
+
+---
+
+## 📂 Alternative: Manual Installation
 
 #### Install root dependencies:
 ```bash
