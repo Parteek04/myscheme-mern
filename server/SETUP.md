@@ -28,6 +28,9 @@ npm install
 # Seed the database with sample data
 npm run seed
 
+# If you get duplicate key errors, clear and reseed:
+npm run reseed
+
 # Start the development server
 npm run dev
 ```
@@ -54,6 +57,17 @@ Connected to MongoDB
 
 ### Error: "MONGODB_URI is not defined"
 **Solution:** Make sure you copied `.env.example` to `.env`
+
+### Error: "E11000 duplicate key error" or "slug_1 dup key"
+**Solution:** Database already has data. Clear and reseed:
+```powershell
+npm run reseed
+```
+Or manually clear:
+```powershell
+npm run clear
+npm run seed
+```
 
 ### Error: "MongoServerError: Authentication failed"
 **Solution:** The MongoDB credentials might have expired. Create your own MongoDB Atlas account or ask for updated credentials.

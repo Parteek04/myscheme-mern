@@ -7,7 +7,9 @@
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js",
-    "seed": "node scripts/seedData.js"
+    "seed": "node scripts/seedData.js",
+    "clear": "node scripts/clearDatabase.js",
+    "reseed": "node scripts/clearDatabase.js && node scripts/seedData.js"
   },
   "keywords": [],
   "author": "",

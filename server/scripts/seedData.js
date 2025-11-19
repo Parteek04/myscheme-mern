@@ -472,7 +472,15 @@ const seedDatabase = async () => {
     await User.deleteMany({});
     await Category.deleteMany({});
     await Scheme.deleteMany({});
-    console.log('✅ Existing data cleared');
+    
+    // Drop indexes to prevent duplicate key errors
+    try {
+      await Category.collection.dropIndexes();
+      await Scheme.collection.dropIndexes();
+      console.log('✅ Indexes dropped and data cleared');
+    } catch (err) {
+      console.log('✅ Existing data cleared');
+    }
 
     // Create admin user
     console.log('👤 Creating admin user...');
