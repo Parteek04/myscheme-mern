@@ -11,48 +11,56 @@ dotenv.config();
 const categories = [
   {
     name: 'Education',
+    slug: 'education',
     description: 'Scholarships and education related schemes for students',
     icon: '🎓',
     color: '#3B82F6'
   },
   {
     name: 'Healthcare',
+    slug: 'healthcare',
     description: 'Health insurance and medical assistance schemes',
     icon: '🏥',
     color: '#EF4444'
   },
   {
     name: 'Women Empowerment',
+    slug: 'women-empowerment',
     description: 'Schemes for women development and empowerment',
     icon: '👩',
     color: '#EC4899'
   },
   {
     name: 'Agriculture',
+    slug: 'agriculture',
     description: 'Schemes for farmers and agricultural development',
     icon: '🌾',
     color: '#10B981'
   },
   {
     name: 'Business & Startup',
+    slug: 'business-startup',
     description: 'Loans and support for entrepreneurs and startups',
     icon: '💼',
     color: '#8B5CF6'
   },
   {
     name: 'Social Security',
+    slug: 'social-security',
     description: 'Pension and social welfare schemes',
     icon: '🛡️',
     color: '#F59E0B'
   },
   {
     name: 'Housing',
+    slug: 'housing',
     description: 'Affordable housing and shelter schemes',
     icon: '🏠',
     color: '#06B6D4'
   },
   {
     name: 'Skills & Employment',
+    slug: 'skills-employment',
     description: 'Skill development and employment generation schemes',
     icon: '💪',
     color: '#6366F1'
