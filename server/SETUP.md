@@ -2,9 +2,9 @@
 
 ## ⚙️ Environment Configuration
 
-Before running the server, you need to create the `.env` file:
+**IMPORTANT:** Before running the server, you MUST create and configure the `.env` file:
 
-### Quick Setup (Copy-Paste):
+### Step 1: Create .env file
 
 ```powershell
 # Navigate to server folder
@@ -17,7 +17,20 @@ Copy-Item .env.example .env
 # cp .env.example .env
 ```
 
-The `.env.example` already contains the working MongoDB connection string, so you can use it as-is!
+### Step 2: Configure MongoDB Connection
+
+Edit the `server/.env` file and add your MongoDB connection string:
+
+```env
+MONGODB_URI=your_mongodb_connection_string_here
+```
+
+**Get MongoDB Connection String:**
+1. **MongoDB Atlas (Recommended):** 
+   - Go to https://www.mongodb.com/cloud/atlas
+   - Create a free cluster
+   - Get your connection string
+2. **Local MongoDB:** Use `mongodb://localhost:27017/myscheme`
 
 ## 🚀 Run the Server
 

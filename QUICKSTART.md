@@ -6,7 +6,8 @@
 Open PowerShell and navigate to your project directory:
 
 ```powershell
-cd c:\Users\kumar\OneDrive\Desktop\mam
+# Navigate to the project directory
+cd myscheme-mern
 
 # Install all dependencies at once
 npm run install-all
@@ -29,6 +30,8 @@ This creates:
 - ✅ 8 Categories
 - ✅ 12 Sample Government Schemes
 - ✅ 2 Test Users (Admin & Regular User)
+
+**Note:** If you get duplicate key errors, run `npm run reseed` instead.
 
 ### Step 3: Start the Application
 

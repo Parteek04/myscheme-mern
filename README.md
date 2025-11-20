@@ -2,6 +2,16 @@
 
 A full-stack web application similar to MyScheme.gov.in, built with the MERN stack (MongoDB, Express.js, React, Node.js). This platform helps Indian citizens discover and explore government schemes and benefits available to them.
 
+## 🚀 Quick Start
+
+**New to this project?** Follow these guides in order:
+
+1. 📖 **[INSTALLATION.md](INSTALLATION.md)** - Complete step-by-step installation guide (Start Here!)
+2. ✅ **[SETUP_CHECKLIST.md](SETUP_CHECKLIST.md)** - Checklist to verify your setup
+3. ⚡ **[QUICKSTART.md](QUICKSTART.md)** - Quick reference for running the app
+4. 📚 **[API_GUIDE.md](API_GUIDE.md)** - API documentation
+5. 🚀 **[DEPLOYMENT.md](DEPLOYMENT.md)** - Deploy to production
+
 ## 📋 Table of Contents
 
 - [Features](#features)
@@ -177,7 +187,25 @@ Install all dependencies (client + server) with one command:
 npm run install-all
 ```
 
-### 3. **IMPORTANT:** Setup Environment Variables
+Or install separately:
+```bash
+# Root dependencies
+npm install
+
+# Server dependencies
+cd server
+npm install
+cd ..
+
+# Client dependencies
+cd client
+npm install
+cd ..
+```
+
+### 3. **CRITICAL:** Setup Environment Variables
+
+**This step is REQUIRED or the server will not start!**
 
 Create the `.env` file in the server folder:
 
@@ -185,15 +213,24 @@ Create the `.env` file in the server folder:
 # Windows PowerShell
 cd server
 Copy-Item .env.example .env
-cd ..
 
 # Mac/Linux
 cd server
 cp .env.example .env
-cd ..
 ```
 
-The `.env.example` already contains the working MongoDB connection string!
+Then edit `server/.env` and add your MongoDB connection string:
+```env
+MONGODB_URI=your_mongodb_connection_string_here
+JWT_SECRET=your_secret_key_here
+PORT=5000
+NODE_ENV=development
+CLIENT_URL=http://localhost:5173
+```
+
+**MongoDB Setup Options:**
+- **Option A:** Use [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) (Free tier available)
+- **Option B:** Install MongoDB locally
 
 ### 4. Seed the Database
 
@@ -275,23 +312,27 @@ npm run install-all
 
 ### Server Environment Variables
 
-The `.env` file is already configured in `server/.env` with your MongoDB connection string:
+Create `server/.env` from `server/.env.example` and configure:
 
 ```env
 # MongoDB Connection
-MONGODB_URI=mongodb+srv://Parteek:67xvvSpbJdK4fOrB@test0.gagdjex.mongodb.net/?retryWrites=true&w=majority&appName=test0
+# Get this from MongoDB Atlas or use local: mongodb://localhost:27017/myscheme
+MONGODB_URI=your_mongodb_connection_string
 
-# JWT Secret Key
-JWT_SECRET=myscheme_super_secret_jwt_key_2024_change_this_in_production
+# JWT Secret Key (generate a secure random string)
+JWT_SECRET=your_super_secret_jwt_key_here
 
 # Server Port
 PORT=5000
 
 # Node Environment
 NODE_ENV=development
+
+# Client URL for CORS
+CLIENT_URL=http://localhost:5173
 ```
 
-**Note:** For production deployment, create a new `.env` file and change the `JWT_SECRET` to a secure random string.
+**Security Note:** Never commit the `.env` file to Git. It's already in `.gitignore`.
 
 ## 🏃 Running the Application
 
